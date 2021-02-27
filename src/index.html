@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>notanothertable</title>
+    <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <table nat>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+                <th>Header 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Item 1</td>
+                <td>Cell 1</td>
+                <td>Cell 2</td>
+                <td>Cell 3</td>
+                <td>Cell 4</td>
+            </tr>
+            <tr>
+                <td>Item 2</td>
+                <td>Cell 5</td>
+                <td>Cell 6</td>
+                <td>Cell 7</td>
+                <td>Cell 8</td>
+            </tr>
+            <tr>
+                <td>Item 3</td>
+                <td>Cell 9</td>
+                <td>Cell 10</td>
+                <td>Cell 11</td>
+                <td>Cell 12</td>
+            </tr>
+            <tr>
+                <td>Item 4</td>
+                <td>Cell 13</td>
+                <td>Cell 14</td>
+                <td>Cell 15</td>
+                <td>Cell 16</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!--
+    expected output
+    <div class="nat__table" role="table">
+        <div class="nat__row-group" role="rowgroup">
+            <div class="nat__row nat__row--header" role="row">
+                <div class="nat__cell" role="columnheader"></div>
+                <div class="nat__cell" role="columnheader">Header 1</div>
+                <div class="nat__cell" role="columnheader">Header 2</div>
+                <div class="nat__cell" role="columnheader">Header 3</div>
+                <div class="nat__cell" role="columnheader">Header 4</div>
+            </div>
+        </div>
+        <div class="nat__row-group" role="rowgroup">
+            <div class="nat__row" role="row">
+                <div class="nat__cell" role="cell">Item 1</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 1: </span>Cell 1</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 2: </span>Cell 2</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 3: </span>Cell 3</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 4: </span>Cell 4</div>
+            </div>
+            <div class="nat__row" role="row">
+                <div class="nat__cell" role="cell">Item 2</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 1: </span>Cell 5</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 2: </span>Cell 6</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 3: </span>Cell 7</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 4: </span>Cell 8</div>
+            </div>
+            <div class="nat__row" role="row">
+                <div class="nat__cell" role="cell">Item 3</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 1: </span>Cell 9</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 2: </span>Cell 10</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 3: </span>Cell 11</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 4: </span>Cell 12</div>
+            </div>
+
+            <div class="nat__row" role="row">
+                <div class="nat__cell" role="cell">Item 4</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 1: </span>Cell 13</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 2: </span>Cell 14</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 3: </span>Cell 15</div>
+                <div class="nat__cell" role="cell"><span class="nat__visible--xs">Header 4: </span>Cell 16</div>
+            </div>
+        </div>
+    </div>
+    -->
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
