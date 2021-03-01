@@ -6,6 +6,7 @@ $nat-accent: red;
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 // Responsive table
 @media only screen and (min-width: $screen-sm-min) {
     .nat__table {
@@ -67,12 +68,12 @@ body {
         padding: 20px 0;
         border-bottom: 1px solid #e0e0e0;
 
-        span {
-            display: inline-block !important;
-        }
-
         span:first-child {
             width: 150px;
         }
+    }
+
+    .nat__hidden--xs {
+        display: none;
     }
 }
