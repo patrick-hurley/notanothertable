@@ -97,7 +97,7 @@
 
                 }
 
-                // ! NAT DEFAULT
+                // ! NAT ROW
                 else if(tableType === 'nat-row') {
                     // for each body row
                     tableBodyRows.forEach(row => {
