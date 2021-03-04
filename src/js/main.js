@@ -1,21 +1,21 @@
 (function () {
 
-    let orgTable;
     let tableHeader;
     let tableHeaderItems;
     let tableBody;
     let tableType;
     let natTable;
 
-    function initNAT(){
-        orgTable = document.querySelector('[nat]');
+    function initNAT(orgTable){
+        
         tableHeader = orgTable.querySelector('thead');
         tableBody = orgTable.querySelector('tbody');
         tableType = 'nat-default';
-        if(document.body.contains(document.querySelector('[nat-column]'))) {
+        // ! Change to if orgTable has selector 
+        if(orgTable.hasAttribute('nat-column')) {
             tableType = 'nat-column';
         }
-        else if(document.body.contains(document.querySelector('[nat-row]'))) {
+        else if(orgTable.hasAttribute('nat-row')) {
             tableType = 'nat-row';
         }
         // start building the nat
@@ -45,12 +45,12 @@
         } else {
             if(tableType !== 'nat-row'){
                 console.error('NAT: No thead found');
-                return
+                return 'error'
             }
         }
     }
 
-    function buildBody() {
+    function buildBody(orgTable) {
 
         // start building table body
         if (tableBody) {
@@ -159,10 +159,13 @@
         }
     }
 
-    if(document.body.contains(document.querySelector('[nat'))) {
-        initNAT();
-        if(buildHeader() !== 'error') { buildBody() } 
-        orgTable.outerHTML = natTable;
+    const orgTables = document.querySelectorAll('[nat]');
+    if(orgTables) {
+        orgTables.forEach(orgTable => {
+            initNAT(orgTable);
+            if(buildHeader() !== 'error') { buildBody(orgTable) } 
+            orgTable.outerHTML = natTable;
+        })
     }
     
 })();

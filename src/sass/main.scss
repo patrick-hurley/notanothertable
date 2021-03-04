@@ -2,9 +2,13 @@ $screen-xs-max: 767px;
 $screen-sm-min: 768px;
 $nat-accent: red;
 
-
+// demo theme
 body {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.nat__table {
+    margin-bottom: 100px;
 }
 
 // Responsive table
