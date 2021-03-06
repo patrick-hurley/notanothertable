@@ -7,15 +7,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.nat__table {
-    margin-bottom: 100px;
-}
-
 // Responsive table
 @media only screen and (min-width: $screen-sm-min) {
     .nat__table {
         display: table;
         width: 100%;
+        table-layout: fixed;
     }
 
     .nat__row--header > .nat__cell {
