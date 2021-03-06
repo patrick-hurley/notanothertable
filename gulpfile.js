@@ -2,15 +2,12 @@ const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync');
 const changed = require('gulp-changed');
-const cleanCSS = require('gulp-clean-css');
-const concat = require('gulp-concat');
 const del = require('del');
-const imagemin = require('gulp-imagemin');
+const minify = require('gulp-minify');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
-const uglify = require('gulp-uglify');
 
 /* -------------------------------------------------------------------------------------------------
 Project location 
@@ -56,39 +53,18 @@ gulp.task('js', function(){
 	return gulp.src([
 			'src/js/*.js'
 		])
-		.pipe(concat('main.js'))
+        .pipe(minify())
 		.pipe(gulp.dest('dist/js/'))
 
 });
 
-// optimise images
-gulp.task('images', function(){
-
-	return gulp.src('src/img/*')
-		.pipe(changed('dist/img'))
-		.pipe(imagemin({
-			progressive: true
-		}))
-		.pipe(gulp.dest('dist/img'))
-
-});
-
-
-// pipe php files to dist/
+// pipe html files to dist/
 gulp.task('html', function(){
 
 	return gulp.src(['src/**/*.html'])
 		.pipe(changed('dist/'))
 		.pipe(gulp.dest('dist/'))
 		.pipe(browserSync.stream())
-
-});
-
-// pipe all font files to dist/
-gulp.task('fonts', function(){
-
-	return gulp.src(['src/fonts/*'])
-		.pipe(gulp.dest('dist/fonts'))
 
 });
 
@@ -108,12 +84,10 @@ gulp.task('watch', function(){
 
 	gulp.watch('src/sass/**/*.scss',['sass']);
 	gulp.watch('src/js/**/*.js',['js','browsersync-reload']);
-	gulp.watch('src/fonts/**/*',['fonts','browsersync-reload']);
 	gulp.watch('src/*.html',['html']);
-	gulp.watch('src/img/*',['images','browsersync-reload']);
 
 });
 
 // build entire dist folder
-gulp.task('build',['clean','sass','js','images','html','fonts']);
+gulp.task('build',['clean','sass','js','html']);
 

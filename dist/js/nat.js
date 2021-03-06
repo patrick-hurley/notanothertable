@@ -1,25 +1,29 @@
 (function () {
 
+    let tableClassName;
     let tableHeader;
     let tableHeaderItems;
     let tableBody;
     let tableType;
     let natTable;
 
-    function initNAT(orgTable){
-        
+    function initNAT(orgTable) {
+
+
         tableHeader = orgTable.querySelector('thead');
         tableBody = orgTable.querySelector('tbody');
+        tableClassName = orgTable.className;
         tableType = 'nat-default';
-        // ! Change to if orgTable has selector 
-        if(orgTable.hasAttribute('nat-column')) {
+
+        if (orgTable.hasAttribute('nat-column')) {
             tableType = 'nat-column';
-        }
-        else if(orgTable.hasAttribute('nat-row')) {
+        } else if (orgTable.hasAttribute('nat-row')) {
             tableType = 'nat-row';
         }
+        
         // start building the nat
-        natTable = `<div class="nat__table ${tableType}">`;
+        natTable = `<div class="nat__table ${tableType} ${tableClassName}">`;
+
     }
 
     function buildHeader() {
@@ -43,7 +47,7 @@
             }
 
         } else {
-            if(tableType !== 'nat-row'){
+            if (tableType !== 'nat-row') {
                 console.error('NAT: No thead found');
                 return 'error'
             }
@@ -62,17 +66,17 @@
                 natTable += '<div class="nat__row-group" role="rowgroup">';
 
                 // ! NAT COLUMN
-                if(tableType === 'nat-column') {
+                if (tableType === 'nat-column') {
 
                     tableHeaderItems.forEach((headerItem, index) => {
-                        
+
                         natTable += '<div class="nat__row" role="row">';
                         natTable += `<div class="nat__cell nat__visible--xs" role="cell">${headerItem.textContent}</div>`;
 
                         tableBodyRows.forEach((row) => {
                             let rowItem = row.querySelector(`td:nth-of-type(${index+1})`);
                             natTable += `<div class="nat__cell nat__visible--xs" role="cell">${rowItem.textContent}</div>`;
-                            
+
                         });
 
 
@@ -98,7 +102,7 @@
                 }
 
                 // ! NAT ROW
-                else if(tableType === 'nat-row') {
+                else if (tableType === 'nat-row') {
                     // for each body row
                     tableBodyRows.forEach(row => {
                         natTable += '<div class="nat__row" role="row">';
@@ -106,14 +110,13 @@
                         // find row items
                         let rowItems = row.querySelectorAll('td');
                         rowItems.forEach((item, index) => {
-                            
-                            if(index === 0){
-                                natTable += `<div class="nat__cell" role="columnheader">`;  
-                            }
-                            else {
+
+                            if (index === 0) {
+                                natTable += `<div class="nat__cell" role="columnheader">`;
+                            } else {
                                 natTable += `<div class="nat__cell" role="cell">`;
                             }
-                            
+
                             natTable += `<span>${item.textContent}</span>`;
                             natTable += `</div>`;
                         });
@@ -133,12 +136,11 @@
                         // find row items
                         let rowItems = row.querySelectorAll('td');
                         rowItems.forEach((item, index) => {
-                            if(tableHeaderItems.item(index).textContent !== ''){
+                            if (tableHeaderItems.item(index).textContent !== '') {
                                 natTable += `<div class="nat__cell" role="cell">`;
                                 natTable += `<span class="nat__visible--xs">${tableHeaderItems.item(index).textContent}: </span>`;
-                            }
-                            else {
-                                natTable += `<div class="nat__cell" role="columnheader">`;  
+                            } else {
+                                natTable += `<div class="nat__cell" role="columnheader">`;
                             }
                             natTable += `<span>${item.textContent}</span>`;
                             natTable += `</div>`;
@@ -160,12 +162,14 @@
     }
 
     const orgTables = document.querySelectorAll('[nat]');
-    if(orgTables) {
+    if (orgTables) {
         orgTables.forEach(orgTable => {
             initNAT(orgTable);
-            if(buildHeader() !== 'error') { buildBody(orgTable) } 
+            if (buildHeader() !== 'error') {
+                buildBody(orgTable)
+            }
             orgTable.outerHTML = natTable;
         })
     }
-    
+
 })();
