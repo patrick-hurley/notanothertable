@@ -39,9 +39,8 @@
 
 ## About The Project
 
-<img src="https://i.ibb.co/BypKvSM/notanothetable-screenshot.png" width="500px">
+<img src="https://i.ibb.co/BypKvSM/notanothetable-screenshot.png" width="600px">
 
-</br>
 </br>
 
 We've all been there. You're given a desktop design that includes a table and now need to make that display nicely on a screen that's 600px wide. "Ergh, not another...". You get the idea.

@@ -1,4 +1,4 @@
-(function () {
+function NAT() {
 
     let tableClassName;
     let tableHeader;
@@ -6,60 +6,63 @@
     let tableBody;
     let tableType;
     let natTable;
+    let error = false;
 
-    function initNAT(orgTable) {
-
-
+    function startTable(orgTable) {
+    
         tableHeader = orgTable.querySelector('thead');
         tableBody = orgTable.querySelector('tbody');
         tableClassName = orgTable.className;
+        
+        // Set the table type
         tableType = 'nat-default';
-
         if (orgTable.hasAttribute('nat-column')) {
             tableType = 'nat-column';
         } else if (orgTable.hasAttribute('nat-row')) {
             tableType = 'nat-row';
         }
-        
-        // start building the nat
+
+        // Start building the nat
         natTable = `<div class="nat__table ${tableType} ${tableClassName}">`;
 
     }
 
-    function buildHeader() {
-        // start building table header
+    function startHeader() {
+        
+        // Start building nat header
         if (tableHeader) {
-            // find all header items
+            // Find all header items
             tableHeaderItems = tableHeader.querySelectorAll('th');
 
             if (tableHeaderItems) {
                 natTable += '<div class="nat__row-group" role="rowgroup">'
                 natTable += '<div class="nat__row nat__row--header" role="row">';
 
-                // new header th's
+                // New header th's
                 tableHeaderItems.forEach(item => {
                     natTable +=
                         `<div class="nat__cell" role="columnheader">${item.textContent}</div>`;
                 })
 
-                // close the header
+                // Close the header
                 natTable += '</div></div>';
             }
 
         } else {
             if (tableType !== 'nat-row') {
                 console.error('NAT: No thead found');
-                return 'error'
+                natTable = null;
+                error = true;
             }
         }
     }
 
-    function buildBody(orgTable) {
+    function startBody(orgTable) {
 
-        // start building table body
+        // Start building nat body
         if (tableBody) {
 
-            // find all body rows
+            // Find all body rows
             let tableBodyRows = orgTable.querySelectorAll('tbody tr')
             if (tableBodyRows) {
 
@@ -79,15 +82,12 @@
 
                         });
 
-
                         natTable += '</div>';
                     });
 
-                    // for each body row
                     tableBodyRows.forEach(row => {
                         natTable += '<div class="nat__row nat__hidden--xs" role="row">';
 
-                        // find row items
                         let rowItems = row.querySelectorAll('td');
                         rowItems.forEach((item, index) => {
                             natTable += `<div class="nat__cell" role="cell">`;
@@ -95,7 +95,7 @@
                             natTable += `</div>`;
                         });
 
-                        // close the row
+                        // Close the row
                         natTable += '</div>';
                     });
 
@@ -103,14 +103,14 @@
 
                 // ! NAT ROW
                 else if (tableType === 'nat-row') {
-                    // for each body row
+                    
                     tableBodyRows.forEach(row => {
                         natTable += '<div class="nat__row" role="row">';
 
-                        // find row items
                         let rowItems = row.querySelectorAll('td');
                         rowItems.forEach((item, index) => {
 
+                            // Create a column header if this is the first cell
                             if (index === 0) {
                                 natTable += `<div class="nat__cell" role="columnheader">`;
                             } else {
@@ -121,19 +121,17 @@
                             natTable += `</div>`;
                         });
 
-                        // close the row
+                        // Close the row
                         natTable += '</div>';
                     });
                 }
 
-
                 // ! NAT DEFAULT
                 else {
-                    // for each body row
+                    
                     tableBodyRows.forEach(row => {
                         natTable += '<div class="nat__row" role="row">';
 
-                        // find row items
                         let rowItems = row.querySelectorAll('td');
                         rowItems.forEach((item, index) => {
                             if (tableHeaderItems.item(index).textContent !== '') {
@@ -146,30 +144,73 @@
                             natTable += `</div>`;
                         });
 
-                        // close the row
+                        // Close the row
                         natTable += '</div>';
                     });
                 }
 
-                // close the row group
+                // Close the row group
                 natTable += '</div>';
             }
 
         } else {
-            console.error('NAT: No tbody found')
-            return
+            console.error('NAT: No tbody found');
+            natTable = null;
+            error = true;
         }
     }
 
+    // Public function to convert a table to nat
+    this.getNAT = (orgTable) => {
+        error = false;
+        // Create an object if a string has been passed
+        if (typeof orgTable !== 'object') {
+            let createTableObject = document.createElement('div');
+            createTableObject.innerHTML = orgTable;
+            orgTable = createTableObject.firstElementChild;
+        }
+        // Check whether the object is a table
+        const isDOM = el => el instanceof Element
+        if (isDOM(orgTable)) {
+            if (orgTable.tagName === 'TABLE') {
+
+                // Begin building the table
+                startTable(orgTable);
+                if(!error){
+                    startHeader();
+                    if(!error){
+                        startBody(orgTable);
+                        // Close the table
+                        if(!error){
+                            natTable += '</div>'
+                        }
+                    }
+                }
+            } else {
+                natTable = null;
+                console.error('NAT: No table found');
+            }
+
+        } else {
+            natTable = null;
+            console.error('NAT: No table found');
+        }
+
+        // Return the table, null will be returned if there was an error
+        return natTable;
+    }
+};
+
+// Find all nat tables and process them
+function natInit() {
+    const nat = new NAT();
     const orgTables = document.querySelectorAll('[nat]');
     if (orgTables) {
         orgTables.forEach(orgTable => {
-            initNAT(orgTable);
-            if (buildHeader() !== 'error') {
-                buildBody(orgTable)
+            natTable = nat.getNAT(orgTable);
+            if(natTable !== null){
+                orgTable.outerHTML = natTable;
             }
-            orgTable.outerHTML = natTable;
         })
     }
-
-})();
+}

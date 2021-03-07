@@ -5,140 +5,88 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>notanothertable</title>
+    <title>NotAnotherTable Demo</title>
     <link href="css/nat.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <h1>NAT Demo</h1>
+    <h1>NAT generator</h1>
 
-    <h2>NAT default</h2>
-    <div class="demo">
-        <table nat>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Row 1</td>
-                    <td>Cell 1</td>
-                    <td>Cell 2</td>
-                </tr>
-                <tr>
-                    <td>Row 2</td>
-                    <td>Cell 3</td>
-                    <td>Cell 4</td>
-                </tr>
-                <tr>
-                    <td>Row 3</td>
-                    <td>Cell 4</td>
-                    <td>Cell 5</td>
-                </tr>
-                <tr>
-                    <td>Row 4</td>
-                    <td>Cell 6</td>
-                    <td>Cell 7</td>
-                </tr>
-                <tr>
-                    <td>Row 5</td>
-                    <td>Cell 8</td>
-                    <td>Cell 9</td>
-                </tr>
-                <tr>
-                    <td>Row 6</td>
-                    <td>Cell 10</td>
-                    <td>Cell 11</td>
-                </tr>
-                <tr>
-                    <td>Row 7</td>
-                    <td>Cell 12</td>
-                    <td>Cell 13</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <h2>Input</h2>
+    
+    <textarea name="table-input" id="table-input" cols="150" rows="20"></textarea>
+    <button id="convert-button" style="display: block; padding: 20px 50px; ">Convert</button>
     
 
-    <h2>NAT column</h2>
-    <table nat nat-column class="nat-theme">
+    <h2>Output</h2>
+    <textarea name="table-output" id="table-output" cols="150" rows="20"></textarea>
+
+    <table nat>
         <thead>
             <tr>
-                <th>Header 1</th>
-                <th>Header 2</th>
-                <th>Header 3</th>
-                <th>Header 4</th>
+                <th></th>
+                <th>Column 1</th>
+                <th>Column 2</th>
             </tr>
         </thead>
         <tbody>
             <tr>
+                <td>Row 1</td>
                 <td>Cell 1</td>
                 <td>Cell 2</td>
+            </tr>
+            <tr>
+                <td>Row 2</td>
                 <td>Cell 3</td>
                 <td>Cell 4</td>
             </tr>
             <tr>
-                <td>Cell 5</td>
-                <td>Cell 6</td>
-                <td>Cell 7</td>
-                <td>Cell 8</td>
-            </tr>
-            <tr>
-                <td>Cell 9</td>
-                <td>Cell 10</td>
-                <td>Cell 11</td>
-                <td>Cell 12</td>
-            </tr>
-            <tr>
-                <td>Cell 13</td>
-                <td>Cell 14</td>
-                <td>Cell 15</td>
-                <td>Cell 16</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>NAT row</h2>
-    <table nat nat-row>
-        <tbody>
-            <tr>
-                <td>Item 1</td>
-                <td>Cell 1</td>
-                <td>Cell 2</td>
-                <td>Cell 3</td>
+                <td>Row 3</td>
                 <td>Cell 4</td>
+                <td>Cell 5</td>
             </tr>
             <tr>
-                <td>Item 2</td>
-                <td>Cell 5</td>
+                <td>Row 4</td>
                 <td>Cell 6</td>
                 <td>Cell 7</td>
-                <td>Cell 8</td>
             </tr>
             <tr>
-                <td>Item 3</td>
+                <td>Row 5</td>
+                <td>Cell 8</td>
                 <td>Cell 9</td>
+            </tr>
+            <tr>
+                <td>Row 6</td>
                 <td>Cell 10</td>
                 <td>Cell 11</td>
-                <td>Cell 12</td>
             </tr>
             <tr>
-                <td>Item 4</td>
+                <td>Row 7</td>
+                <td>Cell 12</td>
                 <td>Cell 13</td>
-                <td>Cell 14</td>
-                <td>Cell 15</td>
-                <td>Cell 16</td>
             </tr>
         </tbody>
     </table>
 
-    <script src="js/nat-min.js"></script>
+    <script src="js/nat.js"></script>
+    <script>
+        
+        natInit();
 
+        const nat = new NAT();
+
+        const convertButton = document.getElementById('convert-button');
+        convertButton.addEventListener('click', function(){
+            let natInput = document.getElementById('table-input').value;
+            let natOutput = nat.getNAT(natInput);
+            if(natOutput !== null){
+                document.getElementById('table-output').value = natOutput;
+            }
+            console.log('nat table: ' + natOutput);
+        })
+    </script>
 </body>
 
 </html>

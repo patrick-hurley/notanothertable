@@ -53,7 +53,7 @@ gulp.task('js', function(){
 	return gulp.src([
 			'src/js/*.js'
 		])
-        .pipe(minify())
+        // .pipe(minify())
 		.pipe(gulp.dest('dist/js/'))
 
 });
