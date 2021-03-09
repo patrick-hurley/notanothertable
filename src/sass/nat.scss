@@ -1,10 +1,14 @@
 $screen-xs-max: 767px;
 $screen-sm-min: 768px;
-$nat-accent: red;
+$nat-accent: #F6CB47;
 
 // demo theme
 body {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.nat__cell--header {
+    font-weight: bold;
 }
 
 // Responsive table
@@ -16,8 +20,7 @@ body {
     }
 
     .nat__row--header > .nat__cell {
-        font-weight: bold;
-        border-bottom-color: $nat-accent;
+        border-bottom: 3px solid $nat-accent;
     }
 
     .nat__row-group {
@@ -54,7 +57,7 @@ body {
 
     .nat__row .nat__cell:nth-of-type(1) {
         font-weight: bold;
-        border-bottom-color: $nat-accent;
+        border-bottom: 3px solid $nat-accent;
 
         span {
             width: 100%;

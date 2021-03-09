@@ -12,7 +12,7 @@ const sass = require('gulp-sass');
 /* -------------------------------------------------------------------------------------------------
 Project location 
 -------------------------------------------------------------------------------------------------- */
-const projectLocation = 'localhost:8888/' + process.cwd().slice(27) + '/dist/';
+const projectLocation = 'localhost:8888/' + process.cwd().slice(27);
 
 
 // clean the dist folder
@@ -53,7 +53,7 @@ gulp.task('js', function(){
 	return gulp.src([
 			'src/js/*.js'
 		])
-        // .pipe(minify())
+        .pipe(minify())
 		.pipe(gulp.dest('dist/js/'))
 
 });
@@ -61,9 +61,8 @@ gulp.task('js', function(){
 // pipe html files to dist/
 gulp.task('html', function(){
 
-	return gulp.src(['src/**/*.html'])
-		.pipe(changed('dist/'))
-		.pipe(gulp.dest('dist/'))
+	return gulp.src(['*.html'])
+		.pipe(changed('/'))
 		.pipe(browserSync.stream())
 
 });
@@ -84,7 +83,7 @@ gulp.task('watch', function(){
 
 	gulp.watch('src/sass/**/*.scss',['sass']);
 	gulp.watch('src/js/**/*.js',['js','browsersync-reload']);
-	gulp.watch('src/*.html',['html']);
+	gulp.watch('*.html',['html']);
 
 });
 

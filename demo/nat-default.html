@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NotAnotherTable</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/css/uikit.min.css" />
+    <link href="../dist/css/nat.css" rel="stylesheet">
+
+    <style>
+     .nat-logo {
+         width: 300px;
+     }   
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="uk-container uk-container-small uk-margin-large-top uk-margin-large-bottom">
+        <img class="nat-logo uk-margin-bottom" src="img/notanothertable.png"/>
+
+        <p>This is the default NAT table.</p>
+
+        <table nat>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                    <th>Column 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1</td>
+                    <td>Cell 1</td>
+                    <td>Cell 2</td>
+                    <td>Cell 3</td>
+                    <td>Cell 4</td>
+                </tr>
+                <tr>
+                    <td>Row 2</td>
+                    <td>Cell 5</td>
+                    <td>Cell 6</td>
+                    <td>Cell 7</td>
+                    <td>Cell 8</td>
+                </tr>
+                <tr>
+                    <td>Row 3</td>
+                    <td>Cell 9</td>
+                    <td>Cell 10</td>
+                    <td>Cell 11</td>
+                    <td>Cell 12</td>
+                </tr>
+                <tr>
+                    <td>Row 4</td>
+                    <td>Cell 13</td>
+                    <td>Cell 14</td>
+                    <td>Cell 15</td>
+                    <td>Cell 16</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/js/uikit.min.js"></script>
+    <script src="../dist/js/nat-min.js"></script>
+    <script>
+        initNAT();
+    </script>
+</body>
+
+</html>

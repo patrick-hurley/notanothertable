@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NotAnotherTable</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/css/uikit.min.css" />
+    <link href="./dist/css/nat.css" rel="stylesheet">
+
+    <style>
+     .nat-logo {
+         width: 300px;
+     }   
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="uk-container uk-container-small uk-margin-large-top uk-margin-large-bottom">
+        <img class="nat-logo uk-margin-bottom" src="demo/img/notanothertable.png"/>
+
+        <p>Use this generator to pre-compile your NAT table to reduce overhead on page load.</p>
+        <p>Just copy and paste the output into your application and you're good to go.</p>
+        <p>Remember to include the nat.css file!</p>
+
+        <h3>Input</h3>
+
+        <textarea name="table-input" class="uk-textarea" id="table-input" rows="10"></textarea>
+        <button id="convert-button" class="uk-button uk-button-primary uk-button-large uk-margin-top">Convert to NAT</button>
+
+        <h3>Output</h3>
+        <textarea name="table-output" class="uk-textarea" id="table-output" rows="10"></textarea>
+
+        <h3>Preview</h3>
+        <div id="table-preview">
+            <p>Your new NAT table will preview here.</p>
+        </div>
+        
+
+    </div>
+
+    <script src="./dist/js/nat-min.js"></script>
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/js/uikit.min.js"></script>
+    <script>
+        
+        const nat = new NAT();
+        const convertButton = document.getElementById('convert-button');
+        const tableInput = document.getElementById('table-input');
+        const tableOutput = document.getElementById('table-output');
+        const tablePreview = document.getElementById('table-preview');
+        convertButton.addEventListener('click', function () {
+            let natInput = tableInput.value;
+            let natOutput = nat.getNAT(natInput);
+            if (natOutput.display) {
+                tableOutput.value = natOutput.display;
+                tablePreview.innerHTML = natOutput.display;
+            }
+            else if(natOutput.error) {
+                tablePreview.innerHTML = `<p>There was an error.</p>`;
+                tableOutput.value = natOutput.error;
+            }
+            else {
+                tablePreview.innerHTML = '<p>Your new NAT table will preview here.</p>';
+                tableOutput.value = '';
+            }
+        })
+    </script>
+</body>
+
+</html>
