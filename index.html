@@ -53,14 +53,14 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/js/uikit.min.js"></script>
     <script>
-        NAT.init();
+   
         const convertButton = document.getElementById('convert-button');
         const tableInput = document.getElementById('table-input');
         const tableOutput = document.getElementById('table-output');
         const tablePreview = document.getElementById('table-preview');
         convertButton.addEventListener('click', function () {
             let natInput = tableInput.value;
-            let natOutput = Nat.getNAT(natInput);
+            let natOutput = nat.convert(natInput);
             if (natOutput.display) {
                 tableOutput.value = natOutput.display;
                 tablePreview.innerHTML = natOutput.display;
