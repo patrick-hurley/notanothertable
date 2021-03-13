@@ -1,26 +1,12 @@
-$screen-xs-max: 767px;
-$screen-sm-min: 768px;
-$nat-accent: #F6CB47;
-
-// demo theme
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.nat__cell--header {
-    font-weight: bold;
-}
-
+$screen-xs-max: 639px;
+$screen-sm-min: 640px;
+ 
 // Responsive table
 @media only screen and (min-width: $screen-sm-min) {
     .nat__table {
         display: table;
         width: 100%;
         table-layout: fixed;
-    }
-
-    .nat__row--header > .nat__cell {
-        border-bottom: 3px solid $nat-accent;
     }
 
     .nat__row-group {
@@ -31,11 +17,17 @@ body {
         display: table-row;
         padding: 20px;
     }
-    
+
     .nat__cell {
         display: table-cell;
         padding: 15px;
         border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nat__body .nat__row:last-of-type {
+        .nat__cell {
+            border-bottom: none;
+        }
     }
 
     .nat__visible--xs {
@@ -50,15 +42,11 @@ body {
     }
 
     .nat__row {
-        padding: 5px 15px;
-        box-shadow: 0 1px 4px #969696;
         margin-bottom: 30px;
     }
 
     .nat__row .nat__cell:nth-of-type(1) {
-        font-weight: bold;
-        border-bottom: 3px solid $nat-accent;
-
+        
         span {
             width: 100%;
         }

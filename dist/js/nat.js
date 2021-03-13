@@ -43,7 +43,7 @@ function NAT() {
                 // New header th's
                 tableHeaderItems.forEach(item => {
                     natTable.display +=
-                        `<div class="nat__cell nat__cell--header" role="columnheader">${item.textContent}</div>`;
+                        `<div class="nat__cell nat__cell--header" role="columnheader">${item.innerHTML}</div>`;
                 })
 
                 // Close the header
@@ -69,7 +69,7 @@ function NAT() {
             let tableBodyRows = orgTable.querySelectorAll('tbody tr')
             if (tableBodyRows) {
 
-                natTable.display += '<div class="nat__row-group" role="rowgroup">';
+                natTable.display += '<div class="nat__row-group nat__body" role="rowgroup">';
 
                 // ! NAT COLUMN
                 if (tableType === 'nat-column') {
@@ -77,11 +77,11 @@ function NAT() {
                     tableHeaderItems.forEach((headerItem, index) => {
 
                         natTable.display += '<div class="nat__row" role="row">';
-                        natTable.display += `<div class="nat__cell nat__visible--xs" role="cell">${headerItem.textContent}</div>`;
+                        natTable.display += `<div class="nat__cell nat__visible--xs" role="cell">${headerItem.innerHTML}</div>`;
 
                         tableBodyRows.forEach((row) => {
                             let rowItem = row.querySelector(`td:nth-of-type(${index+1})`);
-                            natTable.display += `<div class="nat__cell nat__visible--xs" role="cell">${rowItem.textContent}</div>`;
+                            natTable.display += `<div class="nat__cell nat__visible--xs" role="cell">${rowItem.innerHTML}</div>`;
 
                         });
 
@@ -94,7 +94,7 @@ function NAT() {
                         let rowItems = row.querySelectorAll('td');
                         rowItems.forEach((item, index) => {
                             natTable.display += `<div class="nat__cell" role="cell">`;
-                            natTable.display += `<span>${item.textContent}</span>`;
+                            natTable.display += `<span>${item.innerHTML}</span>`;
                             natTable.display += `</div>`;
                         });
 
@@ -119,8 +119,9 @@ function NAT() {
                             } else {
                                 natTable.display += `<div class="nat__cell" role="cell">`;
                             }
+                            console.log(item);
 
-                            natTable.display += `<span>${item.textContent}</span>`;
+                            natTable.display += `<span>${item.innerHTML}</span>`;
                             natTable.display += `</div>`;
                         });
 
@@ -137,13 +138,13 @@ function NAT() {
 
                         let rowItems = row.querySelectorAll('td');
                         rowItems.forEach((item, index) => {
-                            if (tableHeaderItems.item(index).textContent !== '') {
+                            if (tableHeaderItems.item(index).innerHTML !== '') {
                                 natTable.display += `<div class="nat__cell" role="cell">`;
-                                natTable.display += `<span class="nat__visible--xs nat__cell--header">${tableHeaderItems.item(index).textContent}: </span>`;
+                                natTable.display += `<span class="nat__visible--xs nat__cell--header">${tableHeaderItems.item(index).innerHTML}: </span>`;
                             } else {
                                 natTable.display += `<div class="nat__cell nat__cell--header" role="columnheader">`;
                             }
-                            natTable.display += `<span>${item.textContent}</span>`;
+                            natTable.display += `<span>${item.innerHTML}</span>`;
                             natTable.display += `</div>`;
                         });
 

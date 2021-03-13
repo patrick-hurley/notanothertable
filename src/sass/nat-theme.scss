@@ -1,0 +1,32 @@
+$screen-xs-max: 639px;
+$screen-sm-min: 640px;
+$nat-accent: #F6CB47;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nat__cell--header {
+    font-weight: bold;
+}
+
+// Responsive table
+@media only screen and (min-width: $screen-sm-min) {
+    
+    .nat__row--header > .nat__cell {
+        border-bottom: 3px solid $nat-accent;
+    }
+}
+
+@media only screen and (max-width: $screen-xs-max) {
+
+    .nat__row {
+        padding: 5px 15px;
+        box-shadow: 0 1px 4px #969696;
+    }
+
+    .nat__row .nat__cell:nth-of-type(1) {
+        font-weight: bold;
+        border-bottom: 3px solid $nat-accent;
+    }
+}

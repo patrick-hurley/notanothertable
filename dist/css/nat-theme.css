@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, Helvetica, sans-serif; }
+
+.nat__cell--header {
+  font-weight: bold; }
+
+@media only screen and (min-width: 640px) {
+  .nat__row--header > .nat__cell {
+    border-bottom: 3px solid #F6CB47; } }
+
+@media only screen and (max-width: 639px) {
+  .nat__row {
+    padding: 5px 15px;
+    box-shadow: 0 1px 4px #969696; }
+  .nat__row .nat__cell:nth-of-type(1) {
+    font-weight: bold;
+    border-bottom: 3px solid #F6CB47; } }
