@@ -58,6 +58,14 @@ gulp.task('js', function(){
 
 });
 
+// pipe ts files to dist/
+gulp.task('ts', function(){
+
+	return gulp.src(['src/js/*.ts'])
+		.pipe(gulp.dest('dist/js/'))
+
+});
+
 // pipe html files to dist/
 gulp.task('html', function(){
 
@@ -88,5 +96,5 @@ gulp.task('watch', function(){
 });
 
 // build entire dist folder
-gulp.task('build',['clean','sass','js','html']);
+gulp.task('build',['clean','sass','js','ts','html']);
 
