@@ -1,6 +1,6 @@
 {
   "name": "notanothertable",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert HTML tables to responsive div's",
   "main": "gulpfile.js",
   "scripts": {
