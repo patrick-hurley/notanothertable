@@ -9,7 +9,6 @@
 
   <p align="center">
     Responsive <i>and</i> accessible tables, without the headache.
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
   </p>
 </p>
 
@@ -55,14 +54,14 @@ There are a few ways to install NotAnotherTable.
 
 ### Download
 
-* CSS: <a href="https://cdn.jsdelivr.net/npm/notanothertable@1.0.2/dist/css/nat.css">nat.css</a>
-* JS: <a href="https://cdn.jsdelivr.net/npm/notanothertable@1.0.2/dist/js/nat-min.js">nat-min.js</a>
+* CSS: <a href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat.css">nat.css</a>
+* JS: <a href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/js/nat-min.js">nat-min.js</a>
 
 ### CDN
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notanothertable@1.0.2/dist/css/nat.css"/>
-<script src="https://cdn.jsdelivr.net/npm/notanothertable@1.0.2/dist/js/nat-min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat.css"/>
+<script src="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/js/nat-min.js"></script>
 ```
 
 ### NPM
@@ -73,7 +72,7 @@ npm install notanothertable
 
 ### Pre-compliled HTML
 
-To save on overhead, you can pre-compile your ``<table>`` HTML using the <a href="www.patrickhurley.co.uk">online version</a>, and then just include the CSS stylesheet in your projects.
+To save on overhead, you can pre-compile your ``<table>`` HTML using the <a href="#">online version (coming soon)</a>, and then just include the CSS stylesheet in your projects.
 
 ## Usage
 

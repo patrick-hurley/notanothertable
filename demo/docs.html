@@ -9,16 +9,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/css/uikit.min.css" />
     <link href="../dist/css/nat.css" rel="stylesheet">
     <link href="../dist/css/nat-theme.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
 
     <style>
-        .docs__sidebar {
-            border-right: 1px solid #e5e5e5;
+        html {
+            background: #fafafa;
         }
+
+        .docs__sidebar,
+        .docs__content {
+            padding-top: 40px;
+        }
+
         .docs__sidebar .uk-nav a {
             color: #858585;
+            font-size: 14px;
         }
+
         .docs__content {
-            height: 300vh;
+            background: white;
         }
     </style>
 
@@ -27,66 +37,460 @@
 <body>
     <div class="uk-container uk-container-center uk-margin-large-top">
         <div class="docs__container" uk-grid>
-            <div class="uk-width-1-5 docs__sidebar">
+            <div class="uk-width-1-5 docs__sidebar uk-visible@m">
                 <ul class="uk-nav" uk-sticky="offset: 50">
-                    <li><a href="#section1" uk-scroll="offset: 40">Section 1</a></li>
-                    <li><a href="#section2" uk-scroll="offset: 40">Section 2</a></li>
-                    <li><a href="#section3" uk-scroll="offset: 40">Section 3</a></li>
-                    <li><a href="#section4" uk-scroll="offset: 40">Section 4</a></li>
-                    <li><a href="#section5" uk-scroll="offset: 40">Section 5</a></li>
-                    <li><a href="#section6" uk-scroll="offset: 40">Section 6</a></li>
-                    <li><a href="#section7" uk-scroll="offset: 40">Section 7</a></li>
+                    <li><a href="#section1" uk-scroll="offset: 40">What does it do?</a></li>
+                    <li class="uk-parent">
+                        <a href="#section2" uk-scroll="offset: 40">Installation Methods</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#section2-a" uk-scroll="offset: 40">1. Download</a></li>
+                            <li><a href="#section2-b" uk-scroll="offset: 40">2. CDN</a></li>
+                            <li><a href="#section2-c" uk-scroll="offset: 40">3. NPM</a></li>
+                            <li><a href="#section2-d" uk-scroll="offset: 40">4. Pre-compiled HTML</a></li>
+                        </ul>
+                    </li>
+                    <li class="uk-parent">
+                        <a href="#section3" uk-scroll="offset: 40">Usage</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#section3-a" uk-scroll="offset: 40">default</a></li>
+                            <li><a href="#section3-b" uk-scroll="offset: 40">nat-column</a></li>
+                            <li><a href="#section3-c" uk-scroll="offset: 40">nat-row</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#section4" uk-scroll="offset: 40">Online Convertor</a></li>
+                    <li><a href="#section5" uk-scroll="offset: 40">Browser Compatibility</a></li>
+                    <li><a href="#section6" uk-scroll="offset: 40">License</a></li>
+                    <li><a href="#section7" uk-scroll="offset: 40">Contact</a></li>
                 </ul>
             </div>
-            <div class="uk-width-4-5 docs__content">
+            <div class="uk-width-4-5@m docs__content uk-padding">
 
-                <h2 id="section1">Section 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et minus inventore qui iusto debitis? Eos tempore ipsam ratione. Eius aliquid veniam, a placeat deserunt labore. Soluta porro placeat reprehenderit pariatur.
-                Placeat aliquid deleniti, quasi id ipsum, modi perspiciatis dolor enim illum aperiam nemo necessitatibus iusto earum tempora quisquam accusantium ab! Molestiae eos cupiditate illo tempora animi dolore beatae et ratione?
-                Possimus illo et maiores neque, accusantium eos unde est temporibus modi quos itaque ducimus, minus repellat! Quibusdam, nam officiis obcaecati ex culpa dolore! Qui odio atque iusto consectetur blanditiis possimus.</p>    
-                    
-                <h2 id="section2">Section 2</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et minus inventore qui iusto debitis? Eos tempore ipsam ratione. Eius aliquid veniam, a placeat deserunt labore. Soluta porro placeat reprehenderit pariatur.
-                Placeat aliquid deleniti, quasi id ipsum, modi perspiciatis dolor enim illum aperiam nemo necessitatibus iusto earum tempora quisquam accusantium ab! Molestiae eos cupiditate illo tempora animi dolore beatae et ratione?
-                Possimus illo et maiores neque, accusantium eos unde est temporibus modi quos itaque ducimus, minus repellat! Quibusdam, nam officiis obcaecati ex culpa dolore! Qui odio atque iusto consectetur blanditiis possimus.</p>    
-            
-                <h2 id="section3">Section 3</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et minus inventore qui iusto debitis? Eos tempore ipsam ratione. Eius aliquid veniam, a placeat deserunt labore. Soluta porro placeat reprehenderit pariatur.
-                Placeat aliquid deleniti, quasi id ipsum, modi perspiciatis dolor enim illum aperiam nemo necessitatibus iusto earum tempora quisquam accusantium ab! Molestiae eos cupiditate illo tempora animi dolore beatae et ratione?
-                Possimus illo et maiores neque, accusantium eos unde est temporibus modi quos itaque ducimus, minus repellat! Quibusdam, nam officiis obcaecati ex culpa dolore! Qui odio atque iusto consectetur blanditiis possimus.</p>    
-                
-                <h2 id="section4">Section 4</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et minus inventore qui iusto debitis? Eos tempore ipsam ratione. Eius aliquid veniam, a placeat deserunt labore. Soluta porro placeat reprehenderit pariatur.
-                Placeat aliquid deleniti, quasi id ipsum, modi perspiciatis dolor enim illum aperiam nemo necessitatibus iusto earum tempora quisquam accusantium ab! Molestiae eos cupiditate illo tempora animi dolore beatae et ratione?
-                Possimus illo et maiores neque, accusantium eos unde est temporibus modi quos itaque ducimus, minus repellat! Quibusdam, nam officiis obcaecati ex culpa dolore! Qui odio atque iusto consectetur blanditiis possimus.</p>    
-            
-                <h2 id="section5">Section 5</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et minus inventore qui iusto debitis? Eos tempore ipsam ratione. Eius aliquid veniam, a placeat deserunt labore. Soluta porro placeat reprehenderit pariatur.
-                Placeat aliquid deleniti, quasi id ipsum, modi perspiciatis dolor enim illum aperiam nemo necessitatibus iusto earum tempora quisquam accusantium ab! Molestiae eos cupiditate illo tempora animi dolore beatae et ratione?
-                Possimus illo et maiores neque, accusantium eos unde est temporibus modi quos itaque ducimus, minus repellat! Quibusdam, nam officiis obcaecati ex culpa dolore! Qui odio atque iusto consectetur blanditiis possimus.</p>    
-            
-                <h2 id="section6">Section 6</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et minus inventore qui iusto debitis? Eos tempore ipsam ratione. Eius aliquid veniam, a placeat deserunt labore. Soluta porro placeat reprehenderit pariatur.
-                Placeat aliquid deleniti, quasi id ipsum, modi perspiciatis dolor enim illum aperiam nemo necessitatibus iusto earum tempora quisquam accusantium ab! Molestiae eos cupiditate illo tempora animi dolore beatae et ratione?
-                Possimus illo et maiores neque, accusantium eos unde est temporibus modi quos itaque ducimus, minus repellat! Quibusdam, nam officiis obcaecati ex culpa dolore! Qui odio atque iusto consectetur blanditiis possimus.</p>    
-            
-                <h2 id="section7">Section 7</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et minus inventore qui iusto debitis? Eos tempore ipsam ratione. Eius aliquid veniam, a placeat deserunt labore. Soluta porro placeat reprehenderit pariatur.
-                Placeat aliquid deleniti, quasi id ipsum, modi perspiciatis dolor enim illum aperiam nemo necessitatibus iusto earum tempora quisquam accusantium ab! Molestiae eos cupiditate illo tempora animi dolore beatae et ratione?
-                Possimus illo et maiores neque, accusantium eos unde est temporibus modi quos itaque ducimus, minus repellat! Quibusdam, nam officiis obcaecati ex culpa dolore! Qui odio atque iusto consectetur blanditiis possimus.</p>    
-            
-            </div>
-           
+                <h2 id="section1">What does it do?</h2>
+                <p>We've all been there. You're given a desktop design that includes a table and now need to make that
+                    display nicely on a screen that's 600px wide. "Ergh, not another...". You get the idea.</p>
+                <p><b>notAnotherTable</b> allows you to write code in semantic <code class="language-markup">
+                        <script type="prism-html-markup"><table></script>
+                    </code> markup, converting it to a <code class="language-markup">
+                        <script type="prism-html-markup"><div></script>
+                    </code> based responsive version.</p>
+                <p>Utilising the <code class="language-markup">
+                        <script type="prism-html-markup">role</script>
+                    </code> attribute, the tables remain suitable for those using screen readers as their <code
+                        class="language-markup">
+                        <script type="prism-html-markup"><table></script>
+                    </code> counterparts, as well as looking great on mobile.</p>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section2">Installation Methods</h2>
+                <p>There are a few different ways to install depending on the usage.</p>
+                <p><b>notAnotherTable</b> was designed to work both in the browser and in Node.js.</p>
+
+                <h3 id="section2-a">1. Download</h3>
+                <ul>
+                    <li>CSS: <a href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat.css">nat.css</a>
+                        and <a
+                            href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat-theme.css">nat-theme.css</a>
+                        (optional)
+                    </li>
+                    <li>JS: <a
+                            href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/js/nat-min.js">nat-min.js</a>
+                    </li>
+                </ul>
+
+                <h3 id="section2-b">2. CDN</h3>
+                <p>
+                    <pre><code class="language-markup"><script type="prism-html-markup"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat-theme.css" />
+<script src="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/js/nat-min.js"></script></script></code></pre>
+                </p>
+
+                <h3 id="section2-c">3. NPM</h3>
+                <p>
+                    <pre><code class="language-*"><script type="prism-html-markup">npm install notanothertable</script></code></pre>
+                </p>
+
+                <h3 id="section2-d">4. Pre-compiled HTML</h3>
+                <p>To save on overhead, you can pre-compile your <code class="language-markup">
+                        <script type="prism-html-markup"><table></script>
+                    </code> using the <a href="#section4" uk-scroll="offset: 40">Online Convertor</a>, and then just
+                    include the CSS stylesheet in your projects.</p>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section3">Usage</h2>
+                <p>Simply add <code class="language-markup">
+                        <script type="prism-html-markup">nat</script>
+                    </code> as an attribute to any <code class="language-markup">
+                        <script type="prism-html-markup"><table></script>
+                    </code> element.</p>
+                <p>It's important to create the markup structures as below, including <code class="language-markup">
+                        <script type="prism-html-markup"><thead></script>
+                    </code> and <code class="language-markup">
+                        <script type="prism-html-markup"><tbody></script>
+                    </code> when used in
+                    the examples.</p>
+                <p>There are 3 configuration options depending on whether you have headers on the x and y axis of the
+                    table: <b>default</b>, <b>nat-column</b>, and <b>nat-row</b>.</p>
+
+                <h3 id="section3-a" class="uk-margin-large-top">default</h3>
+                <p>By default, <b>notAnotherTable</b> is set up to expect x and y axis headers.</p>
+
+                <ul uk-tab="connect: #first">
+                    <li><a href="#">input</a></li>
+                    <li><a href="#">output</a></li>
+                    <li><a href="#">result</a></li>
+                </ul>
+                <ul class="uk-switcher uk-margin" id="first">
+                    <li>
+                        <pre><code class="language-markup"><script type="prism-html-markup"><table nat>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Column header 1</th>
+            <th>Column header 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Row header 1</td>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+        </tr>
+        <tr>
+            <td>Row header 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td> 
+        </tr>
+    </tbody>
+</table></script></code></pre>
+                    </li>
+                    <li>
+                        <pre><code class="language-markup"><script type="prism-html-markup"><div class="nat__table nat-default " role="table">
+    <div class="nat__row-group" role="rowgroup">
+        <div class="nat__row nat__row--header" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"></div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
         </div>
     </div>
-    
+    <div class="nat__row-group nat__body" role="rowgroup">
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 1</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 1:
+                </span><span>Cell 1</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 2:
+                </span><span>Cell 2</span></div>
+        </div>
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 2</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 1:
+                </span><span>Cell 3</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 2:
+                </span><span>Cell 4</span></div>
+        </div>
+    </div>
+</div></script></code></pre>
+                    </li>
+                    <li>
+                        <div class="nat__table nat-default " role="table">
+                            <div class="nat__row-group" role="rowgroup">
+                                <div class="nat__row nat__row--header" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"></div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
+                                </div>
+                            </div>
+                            <div class="nat__row-group nat__body" role="rowgroup">
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header
+                                            1</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 1:
+                                        </span><span>Cell 1</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 2:
+                                        </span><span>Cell 2</span></div>
+                                </div>
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header
+                                            2</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 1:
+                                        </span><span>Cell 3</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 2:
+                                        </span><span>Cell 4</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <h3 id="section3-b" class="uk-margin-large-top">nat-column</h3>
+                <p>Add <code class="language-markup">
+                        <script type="prism-html-markup">nat-column</script>
+                    </code> if you just have headers on the x-axis.</p>
+
+                <ul uk-tab="connect: #second">
+                    <li><a href="#">input</a></li>
+                    <li><a href="#">output</a></li>
+                    <li><a href="#">result</a></li>
+                </ul>
+                <ul class="uk-switcher uk-margin" id="first">
+                    <li>
+                        <pre><code class="language-markup"><script type="prism-html-markup"><table nat>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Column header 1</th>
+            <th>Column header 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Row header 1</td>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+        </tr>
+        <tr>
+            <td>Row header 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td> 
+        </tr>
+    </tbody>
+</table></script></code></pre>
+                    </li>
+                    <li>
+                        <pre><code class="language-markup"><script type="prism-html-markup"><div class="nat__table nat-default " role="table">
+    <div class="nat__row-group" role="rowgroup">
+        <div class="nat__row nat__row--header" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"></div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
+        </div>
+    </div>
+    <div class="nat__row-group nat__body" role="rowgroup">
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 1</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 1:
+                </span><span>Cell 1</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 2:
+                </span><span>Cell 2</span></div>
+        </div>
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 2</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 1:
+                </span><span>Cell 3</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 2:
+                </span><span>Cell 4</span></div>
+        </div>
+    </div>
+</div></script></code></pre>
+                    </li>
+                    <li>
+                        <div class="nat__table nat-default " role="table">
+                            <div class="nat__row-group" role="rowgroup">
+                                <div class="nat__row nat__row--header" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"></div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
+                                </div>
+                            </div>
+                            <div class="nat__row-group nat__body" role="rowgroup">
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header
+                                            1</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 1:
+                                        </span><span>Cell 1</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 2:
+                                        </span><span>Cell 2</span></div>
+                                </div>
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header
+                                            2</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 1:
+                                        </span><span>Cell 3</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 2:
+                                        </span><span>Cell 4</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+
+                <h3 id="section3-c" class="uk-margin-large-top">nat-row</h3>
+                <p>Add <code class="language-markup">
+                        <script type="prism-html-markup">nat-row</script>
+                    </code> if you just have headers on the y-axis.</p>
+
+                <ul uk-tab="connect: #second">
+                    <li><a href="#">input</a></li>
+                    <li><a href="#">output</a></li>
+                    <li><a href="#">result</a></li>
+                </ul>
+                <ul class="uk-switcher uk-margin" id="first">
+                    <li>
+                        <pre><code class="language-markup"><script type="prism-html-markup"><table nat>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Column header 1</th>
+            <th>Column header 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Row header 1</td>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+        </tr>
+        <tr>
+            <td>Row header 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td> 
+        </tr>
+    </tbody>
+</table></script></code></pre>
+                    </li>
+                    <li>
+                        <pre><code class="language-markup"><script type="prism-html-markup"><div class="nat__table nat-default " role="table">
+    <div class="nat__row-group" role="rowgroup">
+        <div class="nat__row nat__row--header" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"></div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
+        </div>
+    </div>
+    <div class="nat__row-group nat__body" role="rowgroup">
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 1</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 1:
+                </span><span>Cell 1</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 2:
+                </span><span>Cell 2</span></div>
+        </div>
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 2</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 1:
+                </span><span>Cell 3</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 2:
+                </span><span>Cell 4</span></div>
+        </div>
+    </div>
+</div></script></code></pre>
+                    </li>
+                    <li>
+                        <div class="nat__table nat-default " role="table">
+                            <div class="nat__row-group" role="rowgroup">
+                                <div class="nat__row nat__row--header" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"></div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
+                                </div>
+                            </div>
+                            <div class="nat__row-group nat__body" role="rowgroup">
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header
+                                            1</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 1:
+                                        </span><span>Cell 1</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 2:
+                                        </span><span>Cell 2</span></div>
+                                </div>
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header
+                                            2</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 1:
+                                        </span><span>Cell 3</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 2:
+                                        </span><span>Cell 4</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section4">Online Convertor</h2>
+                <p>Use this generator to pre-compile your NAT table to reduce overhead on page load.</p>
+                <p>Just copy and paste the output into your application and you're good to go.</p>
+                <p class="uk-alert uk-alert-warning">Remember to include the nat.css file!</p>
+
+                <h3>Input</h3>
+
+                <textarea name="table-input" class="uk-textarea" id="table-input" rows="10"></textarea>
+                <button id="convert-button"
+                    class="uk-button uk-button-primary uk-button-large uk-margin-medium-top">Convert to NAT</button>
+
+                <h3>Output</h3>
+                <textarea name="table-output" class="uk-textarea" id="table-output" rows="10"></textarea>
+
+                <h3>Preview</h3>
+                <div id="table-preview">
+                    <p class="uk-alert">Your new NAT table will preview here.</p>
+                </div>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section5">Browser Compatibility</h2>
+                <p>Tested and working on:</p>
+                <ul>
+                    <li>IE7+</li>
+                    <li>Firefox</li>
+                    <li>Safari</li>
+                    <li>Chrome</li>
+                </ul>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section6">License</h2>
+                <p>Distributed under the MIT License. Have at it.</p>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section7">Contact</h2>
+                <p>Made by <a href="https://www.patrickhurley.co.uk">Patrick Hurley</a></p>
+
+            </div>
+
+        </div>
+    </div>
+
 
 
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/js/uikit.min.js"></script>
     <script src="../dist/js/nat-min.js"></script>
     <script>
-        initNAT();
+        nat.init();
+        const convertButton = document.getElementById('convert-button');
+        const tableInput = document.getElementById('table-input');
+        const tableOutput = document.getElementById('table-output');
+        const tablePreview = document.getElementById('table-preview');
+        convertButton.addEventListener('click', function () {
+            let natInput = tableInput.value;
+            let natOutput = nat.convert(natInput);
+            if (natOutput.display) {
+                tableOutput.value = natOutput.display;
+                tablePreview.innerHTML = natOutput.display;
+            } else if (natOutput.hasError) {
+                tablePreview.innerHTML = `<p class="uk-alert">There was an error.</p>`;
+                tableOutput.value = natOutput.errorString;
+            } else {
+                tablePreview.innerHTML = '<p class="uk-alert">Your new NAT table will preview here.</p>';
+                tableOutput.value = '';
+            }
+        })
     </script>
 </body>
 

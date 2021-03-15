@@ -15,7 +15,8 @@
       let tableBody;
       let tableType;
       let natTable = {
-          error: false
+          hasError: false,
+          errorString: null
       };
   
       function startTable(orgTable) {
@@ -60,8 +61,9 @@
           } else {
               if (tableType !== 'nat-row') {
                   natTable.display = null;
-                  natTable.error = 'NAT: No thead found'
-                  console.error(natTable.error);
+                  natTable.hasError = true;
+                  natTable.errorString = 'NAT: No thead found';
+                  console.error(natTable.errorString);
   
               }
           }
@@ -125,7 +127,6 @@
                               } else {
                                   natTable.display += `<div class="nat__cell" role="cell">`;
                               }
-                              console.log(item);
   
                               natTable.display += `<span>${item.innerHTML}</span>`;
                               natTable.display += `</div>`;
@@ -165,14 +166,16 @@
   
           } else {
               natTable.display = null;
-              natTable.error = 'NAT: No tbody found';
-              console.error(natTable.error);
+              natTable.hasError = true;
+              natTable.errorString = 'NAT: No tbody found';
+              console.error(natTable.errorString);
           }
       }
   
       // Public function to convert a table to nat
       function convert(orgTable) {
-          natTable.error = false;
+          natTable.hasError = false;
+          natTable.errorString = null;
           // Create an object if a string has been passed
           if (typeof orgTable !== 'object') {
               let createTableObject = document.createElement('div');
@@ -186,26 +189,28 @@
   
                   // Begin building the table
                   startTable(orgTable);
-                  if (!natTable.error) {
+                  if (!natTable.hasError) {
                       startHeader();
-                      if (!natTable.error) {
+                      if (!natTable.hasError) {
                           startBody(orgTable);
                           // Close the table
-                          if (!natTable.error) {
+                          if (!natTable.hasError) {
                               natTable.display += '</div>'
                           }
                       }
                   }
               } else {
                   natTable.display = null;
-                  natTable.error = 'NAT: No table found';
-                  console.error(natTable.error);
+                  natTable.hasError = true;
+                  natTable.errorString = 'NAT: No table found';
+                  console.error(natTable.errorString);
               }
   
           } else {
               natTable.display = null;
-              natTable.error = 'NAT: No table found';
-              console.error(natTable.error);
+              natTable.hasError = true;
+              natTable.errorString = 'NAT: No table found';
+              console.error(natTable.errorString);
           }
   
           // Return the table, null will be returned if there was an error
