@@ -1,6 +1,6 @@
 {
   "name": "notanothertable",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Convert HTML tables to responsive div's",
   "main": "dist/js/nat.js",
   "scripts": {
