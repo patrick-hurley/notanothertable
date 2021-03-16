@@ -7,53 +7,477 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>NotAnotherTable</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/css/uikit.min.css" />
-    <link href="./dist/css/nat.css" rel="stylesheet">
+    <link href="dist/css/nat.css" rel="stylesheet">
+    <link href="dist/css/nat-theme.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
 
     <style>
-        .nat-logo {
-            width: 300px;
+        html {
+            background: #fafafa;
+        }
+
+        h2 {
+            position: relative;
+        }
+
+        h2:before {
+            position: absolute;
+            top: 0;
+            right: 100%;
+            padding-right: 10px;
+            display: block;
+            color: rgba(34,34,34,0.1);
+            content: "#";
+            padding-right: 5px;
+        }
+
+        .docs__sidebar,
+        .docs__content {
+            padding-top: 40px;
+        }
+
+        .docs__sidebar .uk-nav a {
+            color: #858585;
+            font-size: 14px;
+        }
+
+        .docs__content {
+            background: white;
         }
     </style>
 
 </head>
 
 <body>
+    <div class="uk-container uk-container-center uk-margin-large-top">
+        <div class="docs__container" uk-grid>
+            <div class="uk-width-1-5 docs__sidebar uk-visible@m">
+                <ul class="uk-nav" uk-sticky="offset: 50">
+                    <li><a href="#section1" uk-scroll="offset: 40">What does it do?</a></li>
+                    <li class="uk-parent">
+                        <a href="#section2" uk-scroll="offset: 40">Installation Methods</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#section2-a" uk-scroll="offset: 40">1. Download</a></li>
+                            <li><a href="#section2-b" uk-scroll="offset: 40">2. CDN</a></li>
+                            <li><a href="#section2-c" uk-scroll="offset: 40">3. NPM</a></li>
+                            <li><a href="#section2-d" uk-scroll="offset: 40">4. Pre-compiled HTML</a></li>
+                        </ul>
+                    </li>
+                    <li class="uk-parent">
+                        <a href="#section3" uk-scroll="offset: 40">Usage</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#section3-a" uk-scroll="offset: 40">default</a></li>
+                            <li><a href="#section3-b" uk-scroll="offset: 40">nat-column</a></li>
+                            <li><a href="#section3-c" uk-scroll="offset: 40">nat-row</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#section4" uk-scroll="offset: 40">Online Convertor</a></li>
+                    <li><a href="#section5" uk-scroll="offset: 40">Browser Compatibility</a></li>
+                    <li><a href="#section6" uk-scroll="offset: 40">License</a></li>
+                    <li><a href="#section7" uk-scroll="offset: 40">Contact</a></li>
+                </ul>
+            </div>
+            <div class="uk-width-4-5@m docs__content uk-padding-large">
+
+                <h2 id="section1">What does it do?</h2>
+                <p>You're given a desktop design that includes a table and now need to make that
+                    display nicely on a screen that's 600px wide. "Ergh, not another...". You get the idea.</p>
+                <p><b>nat</b> allows you to write code in semantic <code class="language-markup"><script type="prism-html-markup"><table></script></code> markup, converting it to a <code class="language-markup"><script type="prism-html-markup"><div></script></code> based responsive version.</p>
+                
+                <p>Utilising the <code class="language-markup"><script type="prism-html-markup">role</script></code> attribute, the tables remain suitable for those using screen readers as their <code class="language-markup"><script type="prism-html-markup"><table></script></code> counterparts, as well as looking great on mobile.</p>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section2">Installation Methods</h2>
+                <p>There are a few different ways to install depending on the usage.</p>
+                <p><b>nat</b> was designed to work both in the browser and in Node.js.</p>
+
+                <h3 id="section2-a">1. Download</h3>
+                <ul>
+                    <li>CSS: <a href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat.css">nat.css</a>
+                        and <a
+                            href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat-theme.css">nat-theme.css</a>
+                        (optional)
+                    </li>
+                    <li>JS: <a
+                            href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/js/nat-min.js">nat-min.js</a>
+                    </li>
+                </ul>
+
+                <h3 id="section2-b">2. CDN</h3>
+                <p>
+                    <pre><code class="language-markup">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat.css"/>
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat-theme.css"/>
+&lt;script src="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/js/nat-min.js">&lt;script></code></pre>
+                </p>
+
+                <h3 id="section2-c">3. NPM</h3>
+                <p>
+                    <pre><code class="language-*"><script type="prism-html-markup">npm install notanothertable</script></code></pre>
+                </p>
+
+                <h3 id="section2-d">4. Pre-compiled HTML</h3>
+                <p>To save on overhead, you can pre-compile your <code class="language-markup"><script type="prism-html-markup"><table></script></code> using the <a href="#section4" uk-scroll="offset: 40">Online Convertor</a>, and then just include the CSS stylesheet in your projects.</p>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section3">Usage</h2>
+
+                <p>Simply add <code class="language-markup"><script type="prism-html-markup">nat</script></code> as an attribute to any <code class="language-markup"><script type="prism-html-markup"><table></script></code> element.</p>
+                <p>It's important to create your <code class="language-markup"><script type="prism-html-markup"><table></script></code> markup in the correct structure, including <code class="language-markup"><script type="prism-html-markup"><thead></script></code>, <code class="language-markup"><script type="prism-html-markup"><tbody></script></code>, <code class="language-markup"><script type="prism-html-markup"><th></script></code> and <code class="language-markup"><script type="prism-html-markup"><td></script></code> as used in the <a href="#">options.</a></p>
+
+                <h3>Node.js</h3>
+<pre><code class="language-javascript">var nat = require('notanothertable');
+nat.init();</code></pre>
+
+<p>Or in ES6 syntax</p>
+<pre><code class="language-javascript">import nat from 'notanothertable';
+nat.init();</code></pre>
 
 
-    <div class="uk-container uk-container-small uk-margin-large-top uk-margin-large-bottom">
-        <img class="nat-logo uk-margin-bottom" src="demo/img/notanothertable.png" />
+                <h3>Browser</h3>
 
-        <p>Use this generator to pre-compile your NAT table to reduce overhead on page load.</p>
-        <p>Just copy and paste the output into your application and you're good to go.</p>
-        <p class="uk-alert uk-alert-warning">Remember to include the nat.css file!</p>
+<pre><code class="language-markup">&lt;head>
+    &lt;link rel="stylesheet" href="nat.css"/>
+&lt;/head>
+&lt;script src="nat.js">&lt;/script>
+&lt;script>
+    nat.init();
+&lt;/script></code></pre>
 
-        <hr class="uk-margin-medium-top">
+                <hr class="uk-margin-large-top">
 
-        <h3>Input</h3>
+                <h2 id="methods">Methods</h2>
 
-        <textarea name="table-input" class="uk-textarea" id="table-input" rows="10"></textarea>
-        <button id="convert-button" class="uk-button uk-button-primary uk-button-large uk-margin-medium-top">Convert to NAT</button>
+                <h3 id="methods-a">init</h3>
 
-        <hr class="uk-margin-large-top">
+                <p>Find every table on the page with a  <code class="language-markup"><script type="prism-html-markup">nat</script></code> attribute, and convert it.</p>
 
-        <h3>Output</h3>
-        <textarea name="table-output" class="uk-textarea" id="table-output" rows="10"></textarea>
+<pre><code class="language-javascript">nat.init();</code></pre>
 
-        <hr class="uk-margin-large-top">
+                <h3 id="methods-a">convert</h3>
 
-        <h3>Preview</h3>
-        <div id="table-preview">
-            <p class="uk-alert">Your new NAT table will preview here.</p>
+                <p>Use this method to return an object containing the <b>nat</b> markup as a string.</p>
+
+<pre><code class="language-javascript"><script>const result = nat.convert('<table nat> ...');
+
+result.display // nat markup
+result.hasError // boolean
+result.errorString // error details</script>
+</code></pre>
+
+                <hr class="uk-margin-large-top">
+
+                <h2>Options</h2>
+
+                <p>There are 3 configuration options depending on whether you have headers on the x and y axis of the
+                table: <b>default</b>, <b>nat-column</b>, and <b>nat-row</b>.</p>
+
+                <h3 id="markup-options-a">default</h3>
+                <p>By default, <b>nat</b> is set up to expect x and y axis headers.</p>
+
+                <ul uk-tab="connect: #nat-default">
+                    <li><a href="#">input</a></li>
+                    <li><a href="#">output</a></li>
+                    <li><a href="#">result</a></li>
+                </ul>
+                <ul class="uk-switcher uk-margin" id="nat-default">
+                    <li>
+                        <pre><code class="language-markup"><script type="prism-html-markup"><table nat>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Column header 1</th>
+            <th>Column header 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Row header 1</td>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+        </tr>
+        <tr>
+            <td>Row header 2</td>
+            <td>Cell 3</td>
+            <td>Cell 4</td> 
+        </tr>
+    </tbody>
+</table></script></code></pre>
+                    </li>
+                    <li>
+                        <pre><code class="language-markup"><script type="prism-html-markup"><div class="nat__table nat-default " role="table">
+    <div class="nat__row-group" role="rowgroup">
+        <div class="nat__row nat__row--header" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"></div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
         </div>
+    </div>
+    <div class="nat__row-group nat__body" role="rowgroup">
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 1</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 1:
+                </span><span>Cell 1</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 2:
+                </span><span>Cell 2</span></div>
+        </div>
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 2</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 1:
+                </span><span>Cell 3</span></div>
+            <div class="nat__cell" role="cell"><span class="nat__visible--xs nat__cell--header">Column header 2:
+                </span><span>Cell 4</span></div>
+        </div>
+    </div>
+</div></script></code></pre>
+                    </li>
+                    <li>
+                        <div class="nat__table nat-default " role="table">
+                            <div class="nat__row-group" role="rowgroup">
+                                <div class="nat__row nat__row--header" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"></div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
+                                </div>
+                            </div>
+                            <div class="nat__row-group nat__body" role="rowgroup">
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header
+                                            1</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 1:
+                                        </span><span>Cell 1</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 2:
+                                        </span><span>Cell 2</span></div>
+                                </div>
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header
+                                            2</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 1:
+                                        </span><span>Cell 3</span></div>
+                                    <div class="nat__cell" role="cell"><span
+                                            class="nat__visible--xs nat__cell--header">Column header 2:
+                                        </span><span>Cell 4</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <h3 id="section3-b" class="uk-margin-large-top">nat-column</h3>
+                <p>Add <code class="language-markup"><script type="prism-html-markup">nat-column</script></code> if you just have headers on the x-axis.</p>
+
+                <ul uk-tab="connect: #nat-column">
+                    <li><a href="#">input</a></li>
+                    <li><a href="#">output</a></li>
+                    <li><a href="#">result</a></li>
+                </ul>
+                <ul class="uk-switcher uk-margin" id="nat-column">
+                    <li>
+<pre><code class="language-markup"><script type="prism-html-markup"><table nat nat-column>
+    <thead>
+        <tr>
+            <th>Column header 1</th>
+            <th>Column header 2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Cell 1</td>
+            <td>Cell 3</td>
+        </tr>
+        <tr>
+            <td>Cell 2</td>
+            <td>Cell 4</td>
+        </tr>
+    </tbody>
+</table></script></code></pre>
+                    </li>
+                    <li>
+<pre><code class="language-markup"><script type="prism-html-markup"><div class="nat__table nat-column " role="table">
+    <div class="nat__row-group" role="rowgroup">
+        <div class="nat__row nat__row--header" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+            <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
+        </div>
+    </div>
+    <div class="nat__row-group nat__body" role="rowgroup">
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__visible--xs" role="cell">Column header 1</div>
+            <div class="nat__cell nat__visible--xs" role="cell">Cell 1</div>
+            <div class="nat__cell nat__visible--xs" role="cell">Cell 2</div>
+        </div>
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__visible--xs" role="cell">Column header 2</div>
+            <div class="nat__cell nat__visible--xs" role="cell">Cell 3</div>
+            <div class="nat__cell nat__visible--xs" role="cell">Cell 4</div>
+        </div>
+        <div class="nat__row nat__hidden--xs" role="row">
+            <div class="nat__cell" role="cell"><span>Cell 1</span></div>
+            <div class="nat__cell" role="cell"><span>Cell 3</span></div>
+        </div>
+        <div class="nat__row nat__hidden--xs" role="row">
+            <div class="nat__cell" role="cell"><span>Cell 2</span></div>
+            <div class="nat__cell" role="cell"><span>Cell 4</span></div>
+        </div>
+    </div>
+</div></script></code></pre>
+                    </li>
+                    <li>
+                        <div class="nat__table nat-column " role="table">
+                            <div class="nat__row-group" role="rowgroup">
+                                <div class="nat__row nat__row--header" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 1</div>
+                                    <div class="nat__cell nat__cell--header" role="columnheader">Column header 2</div>
+                                </div>
+                            </div>
+                            <div class="nat__row-group nat__body" role="rowgroup">
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__visible--xs" role="cell">Column header 1</div>
+                                    <div class="nat__cell nat__visible--xs" role="cell">Cell 1</div>
+                                    <div class="nat__cell nat__visible--xs" role="cell">Cell 2</div>
+                                </div>
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__visible--xs" role="cell">Column header 2</div>
+                                    <div class="nat__cell nat__visible--xs" role="cell">Cell 3</div>
+                                    <div class="nat__cell nat__visible--xs" role="cell">Cell 4</div>
+                                </div>
+                                <div class="nat__row nat__hidden--xs" role="row">
+                                    <div class="nat__cell" role="cell"><span>Cell 1</span></div>
+                                    <div class="nat__cell" role="cell"><span>Cell 3</span></div>
+                                </div>
+                                <div class="nat__row nat__hidden--xs" role="row">
+                                    <div class="nat__cell" role="cell"><span>Cell 2</span></div>
+                                    <div class="nat__cell" role="cell"><span>Cell 4</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
 
 
+                <h3 id="section3-c" class="uk-margin-large-top">nat-row</h3>
+                <p>Add <code class="language-markup"><script type="prism-html-markup">nat-row</script></code> if you just have headers on the y-axis.</p>
+
+                <ul uk-tab="connect: #nat-row">
+                    <li><a href="#">input</a></li>
+                    <li><a href="#">output</a></li>
+                    <li><a href="#">result</a></li>
+                </ul>
+                <ul class="uk-switcher uk-margin" id="nat-row">
+                    <li>
+<pre><code class="language-markup"><script type="prism-html-markup"><table nat nat-row>
+    <tbody>
+        <tr>
+            <td>Row header 1</td>
+            <td>Cell 1</td>
+            <td>Cell 2</td>
+            <td>Cell 3</td> 
+        </tr>
+        <tr>
+            <td>Row header 2</td>
+            <td>Cell 4</td>
+            <td>Cell 5</td>
+            <td>Cell 6</td>
+        </tr>
+    </tbody>
+</table></script></code></pre>
+                    </li>
+                    <li>
+<pre><code class="language-markup"><script type="prism-html-markup"><div class="nat__table nat-row " role="table">
+    <div class="nat__row-group nat__body" role="rowgroup">
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 1</span></div>
+            <div class="nat__cell" role="cell"><span>Cell 1</span></div>
+            <div class="nat__cell" role="cell"><span>Cell 2</span></div>
+            <div class="nat__cell" role="cell"><span>Cell 3</span></div>
+        </div>
+        <div class="nat__row" role="row">
+            <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 2</span></div>
+            <div class="nat__cell" role="cell"><span>Cell 4</span></div>
+            <div class="nat__cell" role="cell"><span>Cell 5</span></div>
+            <div class="nat__cell" role="cell"><span>Cell 6</span></div>
+        </div>
+    </div>
+</div></script></code></pre>
+                    </li>
+                    <li>
+                        <div class="nat__table nat-row " role="table">
+                            <div class="nat__row-group nat__body" role="rowgroup">
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 1</span></div>
+                                    <div class="nat__cell" role="cell"><span>Cell 1</span></div>
+                                    <div class="nat__cell" role="cell"><span>Cell 2</span></div>
+                                    <div class="nat__cell" role="cell"><span>Cell 3</span></div>
+                                </div>
+                                <div class="nat__row" role="row">
+                                    <div class="nat__cell nat__cell--header" role="columnheader"><span>Row header 2</span></div>
+                                    <div class="nat__cell" role="cell"><span>Cell 4</span></div>
+                                    <div class="nat__cell" role="cell"><span>Cell 5</span></div>
+                                    <div class="nat__cell" role="cell"><span>Cell 6</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section4">Online Convertor</h2>
+                <p>Use this generator to pre-compile your NAT table to reduce overhead on page load.</p>
+                <p>Just copy and paste the output into your application and you're good to go.</p>
+                <p class="uk-alert uk-alert-warning">Remember to include the nat.css file!</p>
+
+                <h3>Input</h3>
+
+                <textarea name="table-input" class="uk-textarea" id="table-input" rows="10"></textarea>
+                <button id="convert-button"
+                    class="uk-button uk-button-primary uk-button-large uk-margin-medium-top">Convert to NAT</button>
+
+                <h3>Output</h3>
+                <textarea name="table-output" class="uk-textarea" id="table-output" rows="10"></textarea>
+
+                <h3>Preview</h3>
+                <div id="table-preview">
+                    <p class="uk-alert">Your new NAT table will preview here.</p>
+                </div>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section5">Browser Compatibility</h2>
+                <p>Tested and working on:</p>
+                <ul>
+                    <li>IE7+</li>
+                    <li>Firefox</li>
+                    <li>Safari</li>
+                    <li>Chrome</li>
+                </ul>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section6">License</h2>
+                <p>Distributed under the MIT License. Have at it.</p>
+
+                <hr class="uk-margin-large-top">
+
+                <h2 id="section7">Contact</h2>
+                <p>Made by <a href="https://www.patrickhurley.co.uk">Patrick Hurley</a></p>
+
+            </div>
+
+        </div>
     </div>
 
-    <script src="./dist/js/nat-min.js"></script>
+
+
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.17/dist/js/uikit.min.js"></script>
+    <script src="dist/js/nat-min.js"></script>
     <script>
-   
+        nat.init();
         const convertButton = document.getElementById('convert-button');
         const tableInput = document.getElementById('table-input');
         const tableOutput = document.getElementById('table-output');
@@ -64,9 +488,9 @@
             if (natOutput.display) {
                 tableOutput.value = natOutput.display;
                 tablePreview.innerHTML = natOutput.display;
-            } else if (natOutput.error) {
+            } else if (natOutput.hasError) {
                 tablePreview.innerHTML = `<p class="uk-alert">There was an error.</p>`;
-                tableOutput.value = natOutput.error;
+                tableOutput.value = natOutput.errorString;
             } else {
                 tablePreview.innerHTML = '<p class="uk-alert">Your new NAT table will preview here.</p>';
                 tableOutput.value = '';
