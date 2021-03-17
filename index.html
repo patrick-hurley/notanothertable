@@ -32,6 +32,14 @@
             padding-right: 5px;
         }
 
+        .docs__header {
+            background: linear-gradient(to left, #28a5f5, #1e87f0);
+            color: white;
+            padding: 35px;
+            font-size: 25px;
+            font-weight: 100;
+        }
+
         .docs__sidebar,
         .docs__content {
             padding-top: 40px;
@@ -50,37 +58,54 @@
 </head>
 
 <body>
-    <div class="uk-container uk-container-center uk-margin-large-top">
+    <header class="uk-section docs__header">
+        <p>nat.js | docs</p>
+    </header>
+    <div class="uk-container uk-container-center">
         <div class="docs__container" uk-grid>
-            <div class="uk-width-1-5 docs__sidebar uk-visible@m">
+            <aside class="uk-width-1-5 docs__sidebar uk-visible@m">
                 <ul class="uk-nav" uk-sticky="offset: 50">
-                    <li><a href="#section1" uk-scroll="offset: 40">What does it do?</a></li>
+                    <li><a href="#what-does-it-do" uk-scroll="offset: 40">What does it do?</a></li>
                     <li class="uk-parent">
-                        <a href="#section2" uk-scroll="offset: 40">Installation Methods</a>
+                        <a href="#installation-methods" uk-scroll="offset: 40">Installation Methods</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="#section2-a" uk-scroll="offset: 40">1. Download</a></li>
-                            <li><a href="#section2-b" uk-scroll="offset: 40">2. CDN</a></li>
-                            <li><a href="#section2-c" uk-scroll="offset: 40">3. NPM</a></li>
-                            <li><a href="#section2-d" uk-scroll="offset: 40">4. Pre-compiled HTML</a></li>
+                            <li><a href="#download" uk-scroll="offset: 40">1. Download</a></li>
+                            <li><a href="#cdn" uk-scroll="offset: 40">2. CDN</a></li>
+                            <li><a href="#npm" uk-scroll="offset: 40">3. NPM</a></li>
+                            <li><a href="#pre-compiled-html" uk-scroll="offset: 40">4. Pre-compiled HTML</a></li>
                         </ul>
                     </li>
                     <li class="uk-parent">
-                        <a href="#section3" uk-scroll="offset: 40">Usage</a>
+                        <a href="#usage" uk-scroll="offset: 40">Usage</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="#section3-a" uk-scroll="offset: 40">default</a></li>
-                            <li><a href="#section3-b" uk-scroll="offset: 40">nat-column</a></li>
-                            <li><a href="#section3-c" uk-scroll="offset: 40">nat-row</a></li>
+                            <li><a href="#node-js" uk-scroll="offset: 40">Node.js</a></li>
+                            <li><a href="#browser" uk-scroll="offset: 40">Browser</a></li>
                         </ul>
                     </li>
-                    <li><a href="#section4" uk-scroll="offset: 40">Online Convertor</a></li>
-                    <li><a href="#section5" uk-scroll="offset: 40">Browser Compatibility</a></li>
-                    <li><a href="#section6" uk-scroll="offset: 40">License</a></li>
-                    <li><a href="#section7" uk-scroll="offset: 40">Contact</a></li>
+                    <li class="uk-parent">
+                        <a href="#methods" uk-scroll="offset: 40">Methods</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#init" uk-scroll="offset: 40">init</a></li>
+                            <li><a href="#convert" uk-scroll="offset: 40">convert</a></li>
+                        </ul>
+                    </li>
+                    <li class="uk-parent">
+                        <a href="#options" uk-scroll="offset: 40">Options</a>
+                        <ul class="uk-nav-sub">
+                            <li><a href="#nat-default" uk-scroll="offset: 40">default</a></li>
+                            <li><a href="#nat-column" uk-scroll="offset: 40">nat-column</a></li>
+                            <li><a href="#nat-row" uk-scroll="offset: 40">nat-row</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#online-convertor" uk-scroll="offset: 40">Online Convertor</a></li>
+                    <li><a href="#browser-compatibility" uk-scroll="offset: 40">Browser Compatibility</a></li>
+                    <li><a href="#license" uk-scroll="offset: 40">License</a></li>
+                    <li><a href="#contact" uk-scroll="offset: 40">Contact</a></li>
                 </ul>
-            </div>
-            <div class="uk-width-4-5@m docs__content uk-padding-large">
+            </aside>
+            <main class="uk-width-4-5@m docs__content uk-padding-large">
 
-                <h2 id="section1">What does it do?</h2>
+                <h2 id="what-does-it-do">What does it do?</h2>
                 <p>You're given a desktop design that includes a table and now need to make that
                     display nicely on a screen that's 600px wide. "Ergh, not another...". You get the idea.</p>
                 <p><b>nat</b> allows you to write code in semantic <code class="language-markup"><script type="prism-html-markup"><table></script></code> markup, converting it to a <code class="language-markup"><script type="prism-html-markup"><div></script></code> based responsive version.</p>
@@ -89,11 +114,11 @@
 
                 <hr class="uk-margin-large-top">
 
-                <h2 id="section2">Installation Methods</h2>
+                <h2 id="installation-methods">Installation Methods</h2>
                 <p>There are a few different ways to install depending on the usage.</p>
                 <p><b>nat</b> was designed to work both in the browser and in Node.js.</p>
 
-                <h3 id="section2-a">1. Download</h3>
+                <h3 id="download">1. Download</h3>
                 <ul>
                     <li>CSS: <a href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat.css">nat.css</a>
                         and <a
@@ -105,29 +130,29 @@
                     </li>
                 </ul>
 
-                <h3 id="section2-b">2. CDN</h3>
+                <h3 id="cdn">2. CDN</h3>
                 <p>
                     <pre><code class="language-markup">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat.css"/>
 &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/css/nat-theme.css"/>
 &lt;script src="https://cdn.jsdelivr.net/npm/notanothertable@1.1.0/dist/js/nat-min.js">&lt;script></code></pre>
                 </p>
 
-                <h3 id="section2-c">3. NPM</h3>
+                <h3 id="npm">3. NPM</h3>
                 <p>
                     <pre><code class="language-*"><script type="prism-html-markup">npm install notanothertable</script></code></pre>
                 </p>
 
-                <h3 id="section2-d">4. Pre-compiled HTML</h3>
+                <h3 id="pre-compiled-html">4. Pre-compiled HTML</h3>
                 <p>To save on overhead, you can pre-compile your <code class="language-markup"><script type="prism-html-markup"><table></script></code> using the <a href="#section4" uk-scroll="offset: 40">Online Convertor</a>, and then just include the CSS stylesheet in your projects.</p>
 
                 <hr class="uk-margin-large-top">
 
-                <h2 id="section3">Usage</h2>
+                <h2 id="usage">Usage</h2>
 
                 <p>Simply add <code class="language-markup"><script type="prism-html-markup">nat</script></code> as an attribute to any <code class="language-markup"><script type="prism-html-markup"><table></script></code> element.</p>
                 <p>It's important to create your <code class="language-markup"><script type="prism-html-markup"><table></script></code> markup in the correct structure, including <code class="language-markup"><script type="prism-html-markup"><thead></script></code>, <code class="language-markup"><script type="prism-html-markup"><tbody></script></code>, <code class="language-markup"><script type="prism-html-markup"><th></script></code> and <code class="language-markup"><script type="prism-html-markup"><td></script></code> as used in the <a href="#">options.</a></p>
 
-                <h3>Node.js</h3>
+                <h3 id="node-js">Node.js</h3>
 <pre><code class="language-javascript">var nat = require('notanothertable');
 nat.init();</code></pre>
 
@@ -136,7 +161,7 @@ nat.init();</code></pre>
 nat.init();</code></pre>
 
 
-                <h3>Browser</h3>
+                <h3 id="browser">Browser</h3>
 
 <pre><code class="language-markup">&lt;head>
     &lt;link rel="stylesheet" href="nat.css"/>
@@ -150,13 +175,13 @@ nat.init();</code></pre>
 
                 <h2 id="methods">Methods</h2>
 
-                <h3 id="methods-a">init</h3>
+                <h3 id="init">init</h3>
 
                 <p>Find every table on the page with a  <code class="language-markup"><script type="prism-html-markup">nat</script></code> attribute, and convert it.</p>
 
 <pre><code class="language-javascript">nat.init();</code></pre>
 
-                <h3 id="methods-a">convert</h3>
+                <h3 id="convert">convert</h3>
 
                 <p>Use this method to return an object containing the <b>nat</b> markup as a string.</p>
 
@@ -169,12 +194,12 @@ result.errorString // error details</script>
 
                 <hr class="uk-margin-large-top">
 
-                <h2>Options</h2>
+                <h2 id="options">Options</h2>
 
                 <p>There are 3 configuration options depending on whether you have headers on the x and y axis of the
                 table: <b>default</b>, <b>nat-column</b>, and <b>nat-row</b>.</p>
 
-                <h3 id="markup-options-a">default</h3>
+                <h3 id="nat-default">default</h3>
                 <p>By default, <b>nat</b> is set up to expect x and y axis headers.</p>
 
                 <ul uk-tab="connect: #nat-default">
@@ -267,7 +292,7 @@ result.errorString // error details</script>
                         </div>
                     </li>
                 </ul>
-                <h3 id="section3-b" class="uk-margin-large-top">nat-column</h3>
+                <h3 id="nat-column" class="uk-margin-large-top">nat-column</h3>
                 <p>Add <code class="language-markup"><script type="prism-html-markup">nat-column</script></code> if you just have headers on the x-axis.</p>
 
                 <ul uk-tab="connect: #nat-column">
@@ -359,7 +384,7 @@ result.errorString // error details</script>
                 </ul>
 
 
-                <h3 id="section3-c" class="uk-margin-large-top">nat-row</h3>
+                <h3 id="nat-row" class="uk-margin-large-top">nat-row</h3>
                 <p>Add <code class="language-markup"><script type="prism-html-markup">nat-row</script></code> if you just have headers on the y-axis.</p>
 
                 <ul uk-tab="connect: #nat-row">
@@ -426,7 +451,7 @@ result.errorString // error details</script>
 
                 <hr class="uk-margin-large-top">
 
-                <h2 id="section4">Online Convertor</h2>
+                <h2 id="online-convertor">Online Convertor</h2>
                 <p>Use this generator to pre-compile your NAT table to reduce overhead on page load.</p>
                 <p>Just copy and paste the output into your application and you're good to go.</p>
                 <p class="uk-alert uk-alert-warning">Remember to include the nat.css file!</p>
@@ -447,7 +472,7 @@ result.errorString // error details</script>
 
                 <hr class="uk-margin-large-top">
 
-                <h2 id="section5">Browser Compatibility</h2>
+                <h2 id="browser-compatibility">Browser Compatibility</h2>
                 <p>Tested and working on:</p>
                 <ul>
                     <li>IE7+</li>
@@ -458,15 +483,15 @@ result.errorString // error details</script>
 
                 <hr class="uk-margin-large-top">
 
-                <h2 id="section6">License</h2>
+                <h2 id="license">License</h2>
                 <p>Distributed under the MIT License. Have at it.</p>
 
                 <hr class="uk-margin-large-top">
 
-                <h2 id="section7">Contact</h2>
+                <h2 id="contact">Contact</h2>
                 <p>Made by <a href="https://www.patrickhurley.co.uk">Patrick Hurley</a></p>
 
-            </div>
+            </main>
 
         </div>
     </div>
