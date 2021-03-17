@@ -27,4 +27,4 @@ For installation options, usage, and examples, <a href="https://patrickhurley.co
 <br>
 <br>
 
-Made by <a href="www.patrickhurley.co.uk">Patrick Hurley</a>
+Made by <a href="https://www.patrickhurley.co.uk">Patrick Hurley</a>
