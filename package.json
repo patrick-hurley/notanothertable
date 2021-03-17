@@ -14,11 +14,11 @@
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^8.0.0",
     "gulp-changed": "^1.3.2",
     "gulp-minify": "^3.1.0",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0"
   },
   "repository": {
@@ -31,5 +31,10 @@
   "bugs": {
     "url": "https://github.com/paddy-fields/notanothertable/issues"
   },
-  "homepage": "https://github.com/paddy-fields/notanothertable#readme"
+  "homepage": "https://github.com/paddy-fields/notanothertable#readme",
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "babel-polyfill": "^6.26.0"
+  }
 }
