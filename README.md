@@ -9,7 +9,7 @@
   </p>
 </p>
 
-* * *
+<br>
 ## About The Project
 
 You're given a desktop design that includes a table and now need to make that display nicely on a screen that's 600px wide. "Ergh, not another...". You get the idea.
@@ -18,9 +18,12 @@ You're given a desktop design that includes a table and now need to make that di
 
 <p>Written to work in Node.js and the browser.</p>
 
+
+## Usage
 For installation options, usage, and examples, <a href="https://patrickhurley.co.uk/natanothertable">check out the docs</a>.
 
 
-* * *
+<br>
+<br>
 
 Made by <a href="www.patrickhurley.co.uk">Patrick Hurley</a>

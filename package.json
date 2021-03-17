@@ -26,7 +26,12 @@
     "url": "git+https://github.com/paddy-fields/notanothertable.git"
   },
   "keywords": [
-    "table"
+    "table",
+    "responsive",
+    "accessible",
+    "node",
+    "javascript",
+    "css"
   ],
   "bugs": {
     "url": "https://github.com/paddy-fields/notanothertable/issues"
