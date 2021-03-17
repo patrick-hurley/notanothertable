@@ -469,7 +469,7 @@ result.errorString // error details</script>
                 <hr class="uk-margin-large-top">
 
                 <h2 id="online-convertor">Online Convertor</h2>
-                <p>Use this generator to pre-compile your NAT table to reduce overhead on page load.</p>
+                <p>Use this generator to pre-compile your <b>nat.js</b> table to reduce overhead on page load.</p>
                 <p>Just copy and paste the output into your application and you're good to go.</p>
                 <p class="uk-alert uk-alert-warning">Remember to include the nat.css file!</p>
 
@@ -484,7 +484,7 @@ result.errorString // error details</script>
 
                 <h3>Preview</h3>
                 <div id="table-preview">
-                    <p class="uk-alert">Your new NAT table will preview here.</p>
+                    <p class="uk-alert">Your new <b>nat.js</b> table will preview here.</p>
                 </div>
 
                 <hr class="uk-margin-large-top">
@@ -534,7 +534,7 @@ result.errorString // error details</script>
                 tablePreview.innerHTML = `<p class="uk-alert">There was an error.</p>`;
                 tableOutput.value = natOutput.errorString;
             } else {
-                tablePreview.innerHTML = '<p class="uk-alert">Your new NAT table will preview here.</p>';
+                tablePreview.innerHTML = '<p class="uk-alert">Your new <b>nat.js</b> table will preview here.</p>';
                 tableOutput.value = '';
             }
         })
