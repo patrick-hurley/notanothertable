@@ -1,5 +1,5 @@
 /**
- * nat v1.1.3
+ * nat v1.1.4
  * (c) 2021 Patrick Hurley
  * @license MIT
  */
